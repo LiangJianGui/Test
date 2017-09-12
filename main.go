@@ -25,12 +25,12 @@ func (a *Application) VulkanSurface(instance vk.Instance) (surface vk.Surface) {
 	return surface
 }
 
-func (a *Application) VulkanAppName() string {
-	return "test"
-}
-
 func (a *Application) VulkanDebug() bool {
 	return false
+}
+
+func (a *Application) VulkanAppName() string {
+	return "test"
 }
 
 func (a *Application) VulkanSwapchainDimensions() *as.SwapchainDimensions {
