@@ -16,6 +16,15 @@ type Application struct {
 	debugEnabled bool
 }
 
+func (a *Application) VulkanSurface(instance vk.Instance) (surface vk.Surface) {
+	ret := vk.CreateWindowSurface(instance, a.windowHandle, nil, &surface)
+	if err := vk.Error(ret); err != nil {
+		log.Panicln("vulkan error:", err)
+		return vk.NullSurface
+	}
+	return surface
+}
+
 func (a *Application) VulkanAppName() string {
 	return "test"
 }
